@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="heading">Angular Carousel</h1>
+
+  <app-carousel [slides]="slides"></app-carousel>
+
+  <app-slide-list [slides]="slides" (slideDeleted)="deleteSlide($event)"></app-slide-list>
+
+  <app-slide-form (slideAdded)="addSlide($event)"></app-slide-form>
+</div>

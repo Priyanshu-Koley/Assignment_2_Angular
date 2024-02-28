@@ -1,0 +1,59 @@
+<h2>Add new slide</h2>
+<!-- Form to add a new slide -->
+<form [formGroup]="slideForm" (ngSubmit)="addSlide()">
+  <!-- Container for image URL input -->
+  <div class="url-input-container">
+    <label for="image-url">Image url</label>
+    <!-- Input field for image URL -->
+    <input type="text" placeholder="Image URL" formControlName="imageUrl" id="image-url">
+  </div>
+  <!-- Error messages for image URL input -->
+  <!-- Display error message if image URL is invalid and touched -->
+  @if(slideForm.get('imageUrl')?.invalid && slideForm.get('imageUrl')?.touched)
+  {
+    <!-- Display required message if image URL is required -->
+    @if(slideForm.get('imageUrl')?.errors?.['required'])
+    {
+      <div class="required-message-container">
+        <small>Image URL is required.</small>
+      </div>
+    }
+    <!-- Display message if image URL format is invalid -->
+    @if(slideForm.get('imageUrl')?.errors?.['pattern'])
+    {
+      <div class="required-message-container">
+        <small>Image URL is not valid.</small>
+      </div>
+    }
+  }
+  
+
+  <!-- Container for slide caption input -->
+  <div class="url-input-container">
+    <label for="caption">Slide caption</label>
+    <!-- Input field for slide caption -->
+    <input type="text" placeholder="Caption" formControlName="caption">
+  </div>
+  <!-- Error messages for slide caption input -->
+  <!-- Display error message if caption is invalid and touched -->
+  @if(slideForm.get('caption')?.invalid && slideForm.get('caption')?.touched)
+  {
+    <!-- Display required message if caption is required -->
+    @if(slideForm.get('caption')?.errors?.['required'])
+    {
+      <div class="required-message-container">
+        <small>Caption is required.</small>
+      </div>
+    }
+    <!-- Display message if caption format is invalid -->
+    @if(slideForm.get('caption')?.errors?.['pattern'])
+    {
+      <div class="required-message-container">
+        <small>Caption is not valid.</small>
+      </div>
+    }
+  }
+  
+  <!-- Button to submit the form -->
+  <button type="submit" [disabled]="!slideForm.valid">Add Slide</button>
+</form>

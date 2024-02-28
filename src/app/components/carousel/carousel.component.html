@@ -1,0 +1,36 @@
+<div class="carousel">
+    <!-- Conditional check to display "No slides found" message if slides array is empty -->
+    @if(slides.length === 0)
+    {
+        <div class="empty-slides">No slides found.</div>
+    }
+    @else{
+        <!-- If slides array is not empty -->
+        <!-- Loop through each slide -->
+        @for(slide of slides; track $index;)
+        {
+            <div class="image-container">
+                <!-- Conditional check to display slide image and caption if it matches currentIndex -->
+                @if($index === currentIndex)
+                {
+                    <img [src]="slide.imageUrl" alt="Image Link is not valid!" class="slide-image">
+                    <p class="slide-caption">{{ slide.caption }}</p>
+                }
+            </div>
+        }
+        <!-- Button to navigate to previous slide -->
+        <button class="prev" (click)="prevSlide()">❮</button>
+        <!-- Button to navigate to next slide -->
+        <button class="next" (click)="nextSlide()">❯</button>
+    }
+</div>
+
+<div class="indicators">
+    <!-- Loop through each slide to create indicators -->
+    @for (slide of slides; track $index) {
+        <!-- Indicator element, highlighted if currentIndex matches the index -->
+        <span [class.active]="$index === currentIndex"
+              (click)="goToSlide($index)">
+        </span>
+    }
+</div>

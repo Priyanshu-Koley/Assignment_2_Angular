@@ -1,0 +1,43 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  .url-input-container{
+    label{
+      display: block;
+      margin: 10px 0px;
+    }
+    input{
+      padding: 8px;
+      border: 1px solid #b8b7b7;
+      border-radius: 3px;
+      width: 300px;
+    }
+  }
+  .required-message-container{
+    small{
+      font-size: 12px;
+      color: rgb(198, 21, 57);
+    }
+  }
+
+  button{
+    width: 100px;
+    padding: 10px; 
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  button:hover{
+    background-color: #0365cd;
+  }
+  button:disabled{
+    background-color: #b8b7b7;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,19 @@
+<h2>Added slides</h2>
+<!-- Conditional check to display a message when no slides have been added -->
+@if(slides.length === 0)
+{
+  <p>No slides have been added.</p>
+}
+
+<!-- List to display added slides -->
+<ul>
+  <!-- Loop through each slide -->
+  @for(slide of slides; track $index;){
+    <li >
+      <!-- Display slide number -->
+      <span>Slide - {{ $index+1 }}</span>
+      <!-- Button to delete the slide -->
+      <button class="delete-btn" (click)="deleteSlide(slide)"><i class="material-icons">delete</i></button>
+    </li>
+  }
+</ul>
